@@ -11,23 +11,49 @@
         <!-- Add Icons -->
         <link rel="apple-touch-icon" href="list_14092269.png">
         <link rel="icon" type="image/png" href="list_14092269.png">
-</head>
-<body>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
+</head>
+<div id="intro-screen" class="intro-screen">
+  <div class="intro-content">
+    <img src="list_14092269.png" alt="Logo" class="intro-logo" />
+    <h1 class="intro-text">Welcome to Taskify</h1>
+  </div>
+</div>
+
+<body>
+  <div class="app-header">
+    <img src="list_14092269.png" alt="App Logo" class="app-logo">
+    <span class="app-title">Taskify</span>
+  </div>
+
+  
   <div class="container">
     <h1>To-Do List</h1>
 
     <div class="input-group">
       <input id="taskInput" type="text" placeholder="Enter a new task">
       <button onclick="addTask()">Add</button>
-    </div>
+      <button onclick="toggleDarkMode()" class="dark-toggle">🌙 Toggle Dark Mode</button>
 
+    </div>
+  
     <ul id="taskList" class="task-list">
       <!-- Tasks will appear here -->
     </ul>
+    <label>
+      <input type="checkbox" id="clearAllCheckbox" onchange="clearAllTasks()">
+      Clear All Tasks
+    </label>
   </div>
  
 
   <script src="app.js"></script>
 </body>
+<script>
+  setTimeout(() => {
+    document.getElementById('intro-screen').style.display = 'none';
+  }, 4000); // 3s animation + 1s buffer
+</script>
+
 </html>
