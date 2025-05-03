@@ -55,3 +55,26 @@ function loadTasks() {
     }
   });
 }
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+  localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+}
+
+// On load
+window.onload = () => {
+  loadTasksFromLocalStorage();
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
+  }
+};
+function clearAllTasks() {
+  const checkbox = document.getElementById('clearAllCheckbox');
+  if (checkbox.checked) {
+    if (confirm("Are you sure you want to delete all tasks?")) {
+      taskList.innerHTML = '';
+      localStorage.removeItem("tasks");
+    }
+    checkbox.checked = false; // Reset checkbox after use
+  }
+}
+
